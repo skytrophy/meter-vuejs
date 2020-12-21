@@ -1,19 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Hello Worldを表示するプログラム</title>
-  </head>
-  <body>
-    <div id="app">{{ message }}</div>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script>
-      const app = new Vue({
-        el: '#app',
-        data: {
-          message: 'Hello World'
-        }
-      })
-    </script>
-  </body>
+  <div id="app">
+    <div class="gradient">
+     <div class="gradient-2"></div>
+     <section class="hero is-medium is-bold">
+      <div class="hero-body">
+       <h1 class="title">
+           Top 200 grossing films
+         </h1>
+       <div class="search">
+        <div id="search">
+         <input class="input" name="query" v-model="searchQuery" placeholder="Search films">
+   
+        </div>
+   
+       </div>
+     </section>
+     </div>
+     <div class="columns content-wrap">
+      <div class="column is-offset-one">
+       <app-grid :data="gridData" :columns="gridColumns" :labels="gridLabels" :filter-key="searchQuery">
+       </app-grid>
+      </div>
+     </div>
+    </div>
+   
+   
+    <footer class="footer">
+     <div class="container">
+      <div class="content has-text-centered">
+       <p>
+        Data from <a href="http://www.boxofficemojo.com/alltime/adjusted.htm">Box Office Mojo</a> (taken July 2017).
+       </p>
+      </div>
+     </div>
+    </footer>
 </html>

@@ -1,0 +1,102 @@
+.gradient {
+	background: -webkit-linear-gradient(-60deg, #096784 30%, #d83452 80%);
+	position: relative;
+	opacity: 1;
+}
+.gradient-2 {
+	background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/47703/empire-strikes-back-min.jpg")
+		center
+		center
+		no-repeat;
+	background-size: cover;
+	display: block;
+
+	opacity: .3;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 0;
+}
+.hero {
+	background: none;
+	margin-bottom: -3.5em;
+	z-index: 5;
+}
+.hero h1 {
+	color: #f2f2f2;
+}
+.hero-body {
+	text-align: center;
+	z-index: 2;
+}
+.hero-body .search {
+	margin: 0 auto;
+	max-width: 400px;
+}
+.input.is-active,
+.input.is-focused,
+.input:active,
+.input:focus,
+.textarea.is-active,
+.textarea.is-focused,
+.textarea:active,
+.textarea:focus {
+	border-color: #096784;
+}
+.content-wrap {
+	z-index: 10000;
+	position: relative;
+}
+.table {
+	background: none;
+}
+.table thead td, .table thead th {
+	border-width: 0 0 2px;
+	color: #f2f2f2;
+}
+.table thead tr:hover {
+	background: none;
+}
+.table td, .table th {
+	padding: .7em .75em;
+}
+.table tbody tr td:first-child {
+	width: 30%;
+}
+.table tbody tr:nth-child(odd) {
+	background-color: #fafafa;
+}
+.table tbody tr:hover {
+	background: #f2f2f2;
+}
+.table th, .table td {
+	border: none;
+}
+th.active .arrow {
+	opacity: 1;
+}
+.arrow {
+	display: inline-block;
+	vertical-align: middle;
+	width: 0;
+	height: 0;
+	margin-left: 5px;
+	opacity: 0.66;
+}
+.arrow.asc {
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-bottom: 4px solid #fff;
+}
+
+.arrow.dsc {
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-top: 4px solid #fff;
+}
+.footer a {
+	color: #096784;
+}
+
