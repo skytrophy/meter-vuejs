@@ -1,45 +1,25 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
-    <title>HelloTechAcademy</title>
-  </head>
-  <body>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<meta charset="UTF-8">
+<html lang="ja">
     <div id="app">
-      <div class="gradient">
-      <div class="gradient-2"></div>
-      <section class="hero is-medium is-bold">
-        <div class="hero-body">
-        <h1 class="title">
-            Top 200 grossing films
-          </h1>
-        <div class="search">
-          <div id="search">
-          <input class="input" name="query" v-model="searchQuery" placeholder="Search films">
-    
-          </div>
-    
+        <div>
+            <table>
+                <thead>
+                   <tr>
+                      <th @click="sortBy('Id')" :class="sortedClass('Id')">Id</th>
+                      <th @click="sortBy('Name')" :class="sortedClass('Name')">Name</th>
+                      <th @click="sortBy('Age')" :class="sortedClass('Age')">Age</th>
+                   </tr>
+                </thead>
+
+                <tbody>
+                    <tr v-for="row in eventedAction">
+                       <td>{{row.Id}}</td>
+                       <td>{{row.Name}}</td>
+                       <td>{{row.Age}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-      </section>
-      </div>
-      <div class="columns content-wrap">
-        <div class="column is-offset-one">
-        <app-grid :data="gridData" :columns="gridColumns" :labels="gridLabels" :filter-key="searchQuery">
-        </app-grid>
-        </div>
-      </div>
-      </div>
-   
-  </body>> 
-  <footer class="footer">
-   <div class="container">
-    <div class="content has-text-centered">
-      <p>
-        Data from <a href="http://www.boxofficemojo.com/alltime/adjusted.htm">Box Office Mojo</a> (taken July 2017).
-      </p>
     </div>
-    </div>
-  </footer>
 </html>
