@@ -1,8 +1,0 @@
-th.sorted.desc::after{
-    display: inline-block;
-    content: '▼';
-}
-th.sorted.asc::after{
-    display: inline-block;
-    content: '▲';
-}
