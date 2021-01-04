@@ -7,13 +7,16 @@
 </head>
 <body>
 <div id="app">
-
+    {{testval}}
 </div>
 </body>
 <!-- <script>タグを追加しVueインスタンスを作成する -->
 <script>
     const app = new Vue({
-        el: '#app' //これで<div id="app"></div>にマウントされる
+        el: '#app',
+        data: {
+            testval : "Hello world"
+        } //これで<div id="app"></div>にマウントされる
     });
 </script>
 </html>
