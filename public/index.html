@@ -1,22 +1,54 @@
-<!DOCTYPE html>
-<html lang="ja">
+<html xmlns="http://www.w3.org/1999/xhtml"xml:lang="ja"lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <title>Title</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible"content="IE=edge">
+<meta http-equiv="content-type"content="text/html; charset=UTF-8">
+<title>Vue で Hello World</title>
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"name="viewport">
+<link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+<link rel="stylesheet"href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+<link rel="stylesheet"href="css/style.css">
 </head>
-<body>
-<div id="app">
-    {{testval}}
+<body class="hold-transition fixed skin-blue-light sidebar-mini ">
+<div class="wrapper" >
+<div style="margin: 20px;">
+<pre>
+Vue.js で データ配列を元にテーブルを動的に生成するサンプル。
+ 
+v-for を使って、インスタンス生成時に渡した配列データを走査して項目を出力します。
+ 
+</pre>
 </div>
+<div class="container">
+<div class="row">
+<div class="col-xs-12">
+<div id="app">
+<table class="table">
+<thead>
+<tr>
+<th>No</th>
+<th>名前</th>
+<th>年齢</th>
+<th>種類</th>
+<th>好物</th>
+</tr>
+</thead>
+<tbody>
+<tr v-for="item in items">
+<td>{{ item.no }}</td>
+<td>{{ item.name }}</td>
+<td>{{ item.sex }}</td>
+<td>{{ item.kind }}</td>
+<td>{{ item.favorite }}</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="js/script.js"></script>
 </body>
-<!-- <script>タグを追加しVueインスタンスを作成する -->
-<script>
-    const app = new Vue({
-        el: '#app',
-        data: {
-            testval : "Hello world"
-        } //これで<div id="app"></div>にマウントされる
-    });
-</script>
 </html>

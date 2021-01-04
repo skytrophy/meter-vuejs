@@ -1,0 +1,17 @@
+@charset"UTF-8";
+ 
+body
+{
+font-family:Helvetica,'Helvetica Neue','Mplus 1p','Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3',Meiryo,メイリオ,Osaka,'MS PGothic'!important;
+font-size:12px;
+}
+ 
+h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6
+{
+font-family:Helvetica,'Helvetica Neue','Mplus 1p','Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3',Meiryo,メイリオ,Osaka,'MS PGothic'!important;
+}
+ 
+div.app{
+margin:20px;
+padding:20px;
+}
