@@ -24,7 +24,7 @@ var news = new Vue({
         axios
         .get('./data/sample.json')
         .then(response => {
-            this.datalists = response;
+            this.datalists = response.data;
         })
         .catch(error => {
               console.log(error);
