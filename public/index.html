@@ -14,13 +14,8 @@
 <div class="wrapper" >
 <div style="margin: 20px;">
 <pre>
-<<<<<<< HEAD
 Vue.js で データ配列を元にテーブルを動的に生成するサンプル。
-
-=======
->>>>>>> 642b2b211da669c46aee227fc4a6e6b3ffe56e72
 v-for を使って、インスタンス生成時に渡した配列データを走査して項目を出力します。
-
 </pre>
 </div>
 	<div class="container">
@@ -54,8 +49,8 @@ v-for を使って、インスタンス生成時に渡した配列データを�
 </div>
 <div id="test">
     <ul>
-        <li v-for ="datalist in datalists" :key ="datalist.data">
-             <p>{{datalist.data}}</p>
+        <li v-for ="value in objects" :key ="">
+             <p>{{value}}</p>
         </li>
     </ul>
 </div>
