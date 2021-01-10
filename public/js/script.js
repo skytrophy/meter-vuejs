@@ -30,4 +30,32 @@ var news = new Vue({
               console.log(error);
         });
     },
+    methods:{
+        sort(index){
+            switch(index) {
+            case 0:
+                this.datalists.sort(function(a,b){
+                    if(a.Description < b.Description) return -1;
+                    if(a.Description > b.Description) return 1;
+                    return 0;
+                });
+                break;
+            case 1:
+                this.datalists.sort(function(a,b){
+                    if(a.Name < b.Name) return -1;
+                    if(a.Name > b.Name) return 1;
+                    return 0;
+                });
+                break;
+            case 2:
+                this.datalists.sort(function(a,b){
+                    if(a.AccountNumber < b.AccountNumber) return -1;
+                    if(a.AccountNumber > b.AccountNumber) return 1;
+                    return 0;
+                });
+                break;
+            default:
+            }
+        }
+    }
 });
