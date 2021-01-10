@@ -30,6 +30,13 @@ var news = new Vue({
               console.log(error);
         });
     },
+});
+export default{
+    data(){
+        return{
+            datalists
+        }
+    }
     methods:{
         sort(index){
             switch(index) {
@@ -58,4 +65,4 @@ var news = new Vue({
             }
         }
     }
-});
+}
