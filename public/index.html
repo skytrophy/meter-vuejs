@@ -12,39 +12,11 @@
 </head>
 <body class="hold-transition fixed skin-blue-light sidebar-mini ">
 <div class="wrapper" >
-<div style="margin: 20px;">
-<pre>
-Vue.js で データ配列を元にテーブルを動的に生成するサンプル。
-v-for を使って、インスタンス生成時に渡した配列データを走査して項目を出力します。
-</pre>
-</div>
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12">
-				<div id="app1">
-					<table class="table">
-						<thead>
-							<tr>
-								<th>No</th>
-								<th>名前</th>
-								<th>年齢</th>
-								<th>種類</th>
-								<th>好物</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr v-for="item in items">
-								<td>{{ item.no }}</td>
-								<td>{{ item.name }}</td>
-								<td>{{ item.sex }}</td>
-								<td>{{ item.kind }}</td>
-								<td>{{ item.favorite }}</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
+	<div style="margin: 20px;">
+		<pre>
+			Vue.js で データ配列を元にテーブルを動的に生成するサンプル。
+			v-for を使って、インスタンス生成時に渡した配列データを走査して項目を出力します。
+		</pre>
 	</div>
 </div>
 <div class="container">
