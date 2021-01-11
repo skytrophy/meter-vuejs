@@ -1,56 +1,70 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<html>
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-	<title>Vue で Hello World</title>
-	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
-	<link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8">
+  <title>Vue.js App</title>
+  <link rel="stylesheet" href="./main.css">
 </head>
-<body class="hold-transition fixed skin-blue-light sidebar-mini ">
-<div class="wrapper" >
-	<div style="margin: 20px;">
-		<pre>
-			Vue.js で データ配列を元にテーブルを動的に生成するサンプル。
-			v-for を使って、インスタンス生成時に渡した配列データを走査して項目を出力します。
-		</pre>
-	</div>
-</div>
-<div class="container">
-	<ul>
-		<li><button @click="sort(0)">id順</button></li>
-		<li><button @click="sort(1)">名前順</button></li>
-		<li><button @click="sort(2)">年齢順</button></li>
-	</ul>
-	<div class="row">
-		<div class="col-xs-12">
-			<div id="test">
-				<table class="table">
-					<thead>
-						<tr>
-							<th>名前</th>
-							<th>年齢</th>
-							<th>種類</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr v-for ="value in datalists" >
-							<td>{{ value.Name }}</td>
-							<td>{{ value.AccountNumber }}</td>
-							<td>{{ value.Description }}</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</div>
-</div>
-<script src="js/vue.min.js"></script>
-<script src="https://www.promisejs.org/polyfills/promise-7.0.4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="js/script.js"></script>
+<body>
+
+  <div id="app">
+    <h1>チュートリアルToDoリスト</h1>
+
+    <!-- ★STEP11 -->
+    <label v-for="label in options" >
+      <input type="radio"
+        v-model="current"
+        v-bind:value="label.value">{{ label.label }}
+    </label>
+      
+    <!-- ★STEP12 -->
+    （{{ computedTodos.length }} 件を表示）
+
+    <!-- ★STEP4 リスト用テーブル -->
+    <table>
+      <thead v-pre>
+        <tr>
+          <th class="id">ID</th>
+          <th class="comment">コメント</th>
+          <th class="state">状態</th>
+          <th class="button">-</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- ★STEP5 ToDo の要素をループ -->
+        <tr
+          v-for="item in computedTodos"
+          v-bind:key="item.id"
+          v-bind:class="{done:item.state}">
+          <th>{{ item.id }}</th>
+          <td>{{ item.comment }}</td>
+          <td class="state">
+            <!-- ★STEP10 状態変更ボタン -->
+            <button v-on:click="doChangeState(item)">
+              {{ labels[item.state] }}
+            </button>
+          </td>
+          <td class="button">
+            <!-- ★STEP10 削除ボタン -->
+            <button v-on:click.ctrl="doRemove(item)">
+              削除
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p>※削除ボタンはコントロールキーを押しながらクリックして下さい</p>
+
+    <!-- ★STEP6 -->
+    <h2>新しい作業の追加</h2>
+    <form class="add-form" v-on:submit.prevent="doAdd">
+      <!-- コメント入力フォーム -->
+      コメント <input type="text" ref="comment">
+      <!-- 追加ボタンのモック -->
+      <button type="submit">追加</button>
+    </form>
+  </div>
+  <script src="js/vue.min.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
