@@ -1,6 +1,5 @@
 
 // ★STEP2
-import vSelect from 'vue-select'
 Vue.config.devtools = true;
 // https://jp.vuejs.org/v2/examples/todomvc.html
 var STORAGE_KEY = 'todos-vuejs-demo'
