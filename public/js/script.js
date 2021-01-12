@@ -1,5 +1,7 @@
 
 // ★STEP2
+import vSelect from 'vue-select'
+Vue.config.devtools = true;
 // https://jp.vuejs.org/v2/examples/todomvc.html
 var STORAGE_KEY = 'todos-vuejs-demo'
 var todoStorage = {
@@ -16,7 +18,6 @@ var todoStorage = {
   }
 }
 
-
 // ★STEP1
 new Vue({
   el: '#app',
@@ -28,9 +29,10 @@ new Vue({
     current: 0,
     // ★STEP11＆STEP13 各状態のラベル
     options: [
-      { value: 0, label: '現金' },
+      { value: 0, label: '全て' },
       { value: 1, label: '仮想通貨' },
-      { value: 2, label: '証券' }
+      { value: 2, label: '証券' },
+      { value: 3, label: '現金' }
     ]
   },
 
