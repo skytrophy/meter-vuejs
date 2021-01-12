@@ -25,12 +25,12 @@ new Vue({
     // ★STEP5 localStorage から 取得した ToDo のリスト
     todos: [],
     // ★STEP11 抽出しているToDoの状態
-    current: -1,
+    current: 0,
     // ★STEP11＆STEP13 各状態のラベル
     options: [
-      { value: -1, label: 'すべて' },
-      { value: 0, label: '作業中' },
-      { value: 1, label: '完了' }
+      { value: 0, label: '現金' },
+      { value: 1, label: '仮想通貨' },
+      { value: 2, label: '証券' }
     ]
   },
 
@@ -39,7 +39,7 @@ new Vue({
     // ★STEP12
     computedTodos: function () {
       return this.todos.filter(function (el) {
-        return this.current < 0 ? true : this.current === el.state
+        return this.current == 0 ? true : this.current === el.state
       }, this)
     },
 
@@ -78,6 +78,7 @@ new Vue({
     doAdd: function(event, value) {
       // ref で名前を付けておいた要素を参照
       var comment = this.$refs.comment
+      var state = this.$refs.state
       // 入力がなければ何もしないで return
       if (!comment.value.length) {
         return
@@ -87,17 +88,18 @@ new Vue({
       // 作業状態「state」はデフォルト「作業中=0」で作成
       this.todos.push({
         id: todoStorage.uid++,
-        comment: comment.value,
-        state: 0
+        comment: Number(comment.value),
+        state: Number(state.value)
       })
       // フォーム要素を空にする
       comment.value = ''
+      state.value = ''
     },
 
     // ★STEP10 状態変更の処理
-    doChangeState: function (item) {
-      item.state = !item.state ? 1 : 0
-    },
+    //doChangeState: function (item) {
+      //item.state = !item.state ? 1 : 0
+    //},
 
     // ★STEP10 削除の処理
     doRemove: function (item) {
