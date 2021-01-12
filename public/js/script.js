@@ -40,7 +40,7 @@ new Vue({
     // ★STEP12
     computedTodos: function () {
       return this.todos.filter(function (el) {
-        return this.current == 0 ? true : this.current === el.state
+        return this.current == 0 ? true : this.current === el.type
       }, this)
     },
 
@@ -78,29 +78,29 @@ new Vue({
     // ★STEP7 ToDo 追加の処理
     doAdd: function(event, value) {
       // ref で名前を付けておいた要素を参照
-      var comment = this.$refs.comment
-      var state = this.$refs.state
+      var amount = this.$refs.amount
+      var type = this.$refs.type
       // 入力がなければ何もしないで return
-      if (!comment.value.length) {
+      if (!amount.value.length) {
         return
       }
       // { 新しいID, コメント, 作業状態 }
       // というオブジェクトを現在の todos リストへ push
-      // 作業状態「state」はデフォルト「作業中=0」で作成
+      // 作業状態「type」はデフォルト「作業中=0」で作成
       this.todos.push({
         id: todoStorage.uid++,
-        comment: Number(comment.value),
-        state: Number(state.value)
+        amount: Number(amount.value),
+        type: Number(type.value)
       })
       // フォーム要素を空にする
-      comment.value = ''
-      state.value = ''
+      amount.value = ''
+      type.value = ''
     },
 
     // ★STEP10 状態変更の処理
-    //doChangeState: function (item) {
-      //item.state = !item.state ? 1 : 0
-    //},
+    doChangetype: function (item) {
+      item.type = !item.type ? 1 : 0
+    },
 
     // ★STEP10 削除の処理
     doRemove: function (item) {
