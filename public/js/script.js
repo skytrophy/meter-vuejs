@@ -26,6 +26,8 @@ new Vue({
     todos: [],
     // ★STEP11 抽出しているToDoの状態
     current: 0,
+    edit:0,
+    //編集中の時は1 それ以外は0
     // ★STEP11＆STEP13 各状態のラベル
     options: [
       { value: 0, label: '全て' },
@@ -87,24 +89,37 @@ new Vue({
       // { 新しいID, コメント, 作業状態 }
       // というオブジェクトを現在の todos リストへ push
       // 作業状態「type」はデフォルト「作業中=0」で作成
+      if(this.edit==1){
+        newID = this.todos[index].id;
+        this.todos.splice(index, 1)
+      }else{
+        newID = todoStorage.uid++;
+      }
       this.todos.push({
-        id: todoStorage.uid++,
+        id: newID,
         amount: Number(amount.value),
         type: Number(type.value)
       })
       // フォーム要素を空にする
       amount.value = ''
       type.value = ''
+      this.edit = 0;
     },
 
     // ★STEP10 状態変更の処理
     doChangetype: function (item) {
-      item.type = !item.type ? 1 : 0
+      this.edit = 1;
+      index = this.todos.indexOf(item);
+      this.$refs.amount.value = this.todos[index].amount;
+      this.$refs.type.value = this.todos[index].type;
+      this.$refs.amount.focus();
     },
+    
+    
 
     // ★STEP10 削除の処理
     doRemove: function (item) {
-      var index = this.todos.indexOf(item)
+      var index = this.todos.indexOf(item);
       this.todos.splice(index, 1)
     }
 
