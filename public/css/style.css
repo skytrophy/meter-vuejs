@@ -27,13 +27,10 @@
   thead th.id {
     width: 50px;
   }
-  thead th.state {
-    width: 100px;
+  thead th.amount,thead th.button,thead th.type {
+    width: 50px;
   }
-  thead th.button {
-    width: 60px;
-  }
-  tbody td.button, tbody td.state {
+  tbody td.button, tbody td.amount,tbody td.type {
     text-align: center;
   }
   tbody tr td,
