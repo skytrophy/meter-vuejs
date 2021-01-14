@@ -1,5 +1,6 @@
 
 // ★STEP2
+import LineCart from "./LineChart.js"
 Vue.config.devtools = true;
 // https://jp.vuejs.org/v2/examples/todomvc.html
 var STORAGE_KEY = 'todos-vuejs-demo'
